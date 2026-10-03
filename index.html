@@ -1,34 +1,56 @@
 <!doctype html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RPMailClean</title><link rel="stylesheet" href="/styles.css"></head>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RPMailClean — Outlook Command Center</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
 <body>
 <div class="app">
-<aside class="sidebar">
-  <div class="brand"><div class="brandmark">✦</div><div><strong>RPMailClean</strong><span>for Outlook</span></div></div>
-  <button class="compose" id="connectBtn">Connect Outlook</button>
-  <nav>
-    <button class="nav active" data-view="overview">⌂ <span>Overview</span></button>
-    <button class="nav" data-view="inbox">▣ <span>Inbox Cleanup</span><b>24</b></button>
-    <button class="nav" data-view="spam">⚠ <span>Spam & Phishing</span><b class="danger">7</b></button>
-    <button class="nav" data-view="newsletters">✉ <span>Newsletters</span></button>
-    <button class="nav" data-view="senders">◎ <span>Senders</span></button>
-    <button class="nav" data-view="rules">◇ <span>Smart Rules</span></button>
-    <button class="nav" data-view="analytics">▥ <span>Analytics</span></button>
-  </nav>
-  <div class="sideBottom"><button class="nav" data-view="settings">⚙ <span>Settings</span></button><div class="account"><div class="avatar">Z</div><div><strong>Outlook account</strong><small id="connectionState">Not connected</small></div></div></div>
-</aside>
-<main>
-<header><div><p class="eyebrow">OUTLOOK COMMAND CENTER</p><h1 id="title">Inbox overview</h1></div><div class="actions"><button class="ghost" id="scanBtn">↻ Scan inbox</button><button class="primary" id="cleanupBtn">Clean up safely</button></div></header>
-<section id="content">
-<div class="hero"><div><span class="status">● Protected mode</span><h2>Take back control of your inbox.</h2><p>Find spam, risky mail, newsletters and clutter. Actions are staged for review before anything is changed.</p><button class="primary" id="startBtn">Start cleanup</button></div><div class="heroMetric"><span>Potential cleanup</span><strong>3.8 GB</strong><small>across 1,842 messages</small></div></div>
-<div class="metrics"><article><span>Needs attention</span><strong>31</strong><small>7 high-risk messages</small></article><article><span>Newsletters</span><strong>284</strong><small>46 senders detected</small></article><article><span>Large attachments</span><strong>76</strong><small>1.9 GB total</small></article><article><span>Stale mail</span><strong>1,451</strong><small>older than 90 days</small></article></div>
-<div class="grid"><section class="panel"><div class="panelHead"><div><h3>Priority review</h3><p>Messages requiring your attention</p></div><button class="textBtn" data-view="spam">View all</button></div><div id="messages"></div></section>
-<section class="panel"><div class="panelHead"><div><h3>Quick cleanup</h3><p>Review before applying changes</p></div></div>
-<div class="quick"><button data-action="newsletters"><span>✉</span><div><strong>Newsletters</strong><small>284 messages · 46 senders</small></div><em>Review →</em></button>
-<button data-action="large"><span>↥</span><div><strong>Large attachments</strong><small>76 messages · 1.9 GB</small></div><em>Review →</em></button>
-<button data-action="stale"><span>◷</span><div><strong>Stale mail</strong><small>1,451 messages · 90+ days</small></div><em>Review →</em></button>
-<button data-action="duplicates"><span>⊕</span><div><strong>Duplicates</strong><small>93 likely duplicates</small></div><em>Review →</em></button></div></section></div>
-<div class="security"><div><span class="shield">✓</span><div><strong>Protected cleanup</strong><p>Suspicious messages are quarantined for review. Bulk actions are staged so you can inspect changes before applying them.</p></div><span class="secureBadge">SAFE BY DEFAULT</span></div></div>
-</section>
-</main></div>
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brandmark">RP</div>
+      <div><strong>RPMailClean</strong><span>Outlook command center</span></div>
+    </div>
+    <button class="compose" id="connectBtn"><span>＋</span> Connect Outlook</button>
+    <div class="navLabel">MAIL MANAGEMENT</div>
+    <nav>
+      <button class="nav active" data-view="overview"><i>⌂</i><span>Overview</span></button>
+      <button class="nav" data-view="inbox"><i>▣</i><span>Inbox Cleanup</span><b>0</b></button>
+      <button class="nav" data-view="spam"><i>⚠</i><span>Spam & Phishing</span><b class="danger">0</b></button>
+      <button class="nav" data-view="newsletters"><i>✉</i><span>Newsletters</span></button>
+      <button class="nav" data-view="senders"><i>◎</i><span>Senders</span></button>
+      <button class="nav" data-view="rules"><i>◇</i><span>Smart Rules</span></button>
+    </nav>
+    <div class="navLabel navLabelLower">INSIGHTS</div>
+    <nav>
+      <button class="nav" data-view="analytics"><i>▥</i><span>Analytics</span></button>
+    </nav>
+    <div class="sideBottom">
+      <button class="nav" data-view="settings"><i>⚙</i><span>Settings</span></button>
+      <div class="account">
+        <div class="avatar">Z</div>
+        <div><strong>Outlook account</strong><small id="connectionState">Not connected</small></div>
+      </div>
+    </div>
+  </aside>
+  <main>
+    <header>
+      <div class="pageTitle">
+        <p class="eyebrow">OUTLOOK / MAIL OPERATIONS</p>
+        <h1 id="title">Inbox overview</h1>
+        <p class="headerHint">Monitor, triage and clean your mailbox from one workspace.</p>
+      </div>
+      <div class="actions">
+        <button class="ghost" id="scanBtn">↻ <span>Scan inbox</span></button>
+        <button class="primary" id="cleanupBtn">Clean up safely</button>
+      </div>
+    </header>
+    <section id="content"></section>
+  </main>
+</div>
 <div class="toast" id="toast"></div>
-<script src="/script.js"></script></body></html>
+<script src="/script.js"></script>
+</body>
+</html>
