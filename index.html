@@ -9,10 +9,7 @@
 <body>
 <div class="app">
   <aside class="sidebar">
-    <div class="brand">
-      <div class="brandmark">RP</div>
-      <div><strong>RPMailClean</strong><span>Outlook command center</span></div>
-    </div>
+    <div class="brand"><div class="brandmark">RP</div><div><strong>RPMailClean</strong><span>Outlook command center</span></div></div>
     <button class="compose" id="connectBtn"><span>＋</span> Connect Outlook</button>
     <div class="navLabel">MAIL MANAGEMENT</div>
     <nav>
@@ -23,34 +20,34 @@
       <button class="nav" data-view="senders"><i>◎</i><span>Senders</span></button>
       <button class="nav" data-view="rules"><i>◇</i><span>Smart Rules</span></button>
     </nav>
-    <div class="navLabel navLabelLower">INSIGHTS</div>
+    <div class="navLabel navLabelLower">MAIL INTELLIGENCE</div>
     <nav>
-      <button class="nav" data-view="analytics"><i>▥</i><span>Analytics</span></button>
+      <button class="nav" data-feature="smartfolders"><i>▦</i><span>Smart Folders</span></button>
+      <button class="nav" data-feature="suggestions"><i>✦</i><span>Cleaning Suggestions</span></button>
+      <button class="nav" data-feature="unsubscriber"><i>✉</i><span>Unsubscriber</span></button>
+      <button class="nav" data-feature="autoclean"><i>◇</i><span>Auto Clean</span></button>
+      <button class="nav" data-feature="screener"><i>◉</i><span>Screener</span></button>
+      <button class="nav" data-feature="readlater"><i>◷</i><span>Read Later</span></button>
+      <button class="nav" data-feature="privacy"><i>✓</i><span>Privacy Monitor</span></button>
+      <button class="nav" data-feature="blockmute"><i>⊘</i><span>Block & Mute</span></button>
     </nav>
+    <div class="navLabel navLabelLower">INSIGHTS</div>
+    <nav><button class="nav" data-view="analytics"><i>▥</i><span>Analytics</span></button></nav>
     <div class="sideBottom">
       <button class="nav" data-view="settings"><i>⚙</i><span>Settings</span></button>
-      <div class="account">
-        <div class="avatar">Z</div>
-        <div><strong>Outlook account</strong><small id="connectionState">Not connected</small></div>
-      </div>
+      <div class="account"><div class="avatar">Z</div><div><strong>Outlook account</strong><small id="connectionState">Not connected</small></div></div>
     </div>
   </aside>
   <main>
     <header>
-      <div class="pageTitle">
-        <p class="eyebrow">OUTLOOK / MAIL OPERATIONS</p>
-        <h1 id="title">Inbox overview</h1>
-        <p class="headerHint">Monitor, triage and clean your mailbox from one workspace.</p>
-      </div>
-      <div class="actions">
-        <button class="ghost" id="scanBtn">↻ <span>Scan inbox</span></button>
-        <button class="primary" id="cleanupBtn">Clean up safely</button>
-      </div>
+      <div class="pageTitle"><p class="eyebrow">OUTLOOK / MAIL OPERATIONS</p><h1 id="title">Inbox overview</h1><p class="headerHint">Monitor, triage and clean your mailbox from one workspace.</p></div>
+      <div class="actions"><button class="ghost" id="scanBtn">↻ <span>Scan inbox</span></button><button class="primary" id="cleanupBtn">Clean up safely</button></div>
     </header>
     <section id="content"></section>
   </main>
 </div>
 <div class="toast" id="toast"></div>
 <script src="/script.js"></script>
+<script src="/features.js"></script>
 </body>
 </html>
