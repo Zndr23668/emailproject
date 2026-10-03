@@ -11,5 +11,5 @@ export default async function handler(req,res){
   const state=payload+"."+sig;
   const scope="openid profile email offline_access https://graph.microsoft.com/User.Read https://graph.microsoft.com/Mail.ReadWrite";
   const params=new URLSearchParams({client_id:clientId,response_type:"code",redirect_uri:redirectUri,response_mode:"query",scope,state});
-  res.redirect(302,"https://login.microsoftonline.com/common/oauth2/v2.0/authorize?"+params.toString());
+  res.redirect(302,"https://login.microsoftonline.com/consumers/oauth2/v2.0/authorize?"+params.toString());
 }
