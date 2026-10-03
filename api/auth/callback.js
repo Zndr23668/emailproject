@@ -16,7 +16,7 @@ export default async function handler(req,res){
     const payload=JSON.parse(Buffer.from(parts[0],"base64url").toString("utf8"));
     if(!payload.exp||Date.now()>payload.exp) throw new Error();
   }catch{return res.status(400).send("Invalid OAuth state. Please start again from Connect Outlook.");}
-  const token=await fetch("https://login.microsoftonline.com/common/oauth2/v2.0/token",{method:"POST",headers:{"content-type":"application/x-www-form-urlencoded"},body:new URLSearchParams({client_id:clientId,client_secret:clientSecret,grant_type:"authorization_code",code,redirect_uri:redirectUri,scope:"openid profile email offline_access https://graph.microsoft.com/User.Read https://graph.microsoft.com/Mail.ReadWrite"})});
+  const token=await fetch("https://login.microsoftonline.com/consumers/oauth2/v2.0/token",{method:"POST",headers:{"content-type":"application/x-www-form-urlencoded"},body:new URLSearchParams({client_id:clientId,client_secret:clientSecret,grant_type:"authorization_code",code,redirect_uri:redirectUri,scope:"openid profile email offline_access https://graph.microsoft.com/User.Read https://graph.microsoft.com/Mail.ReadWrite"})});
   const data=await token.json();
   if(!token.ok||!data.access_token) return res.status(502).send("Microsoft authorization failed: "+(data.error_description||data.error||"Unknown error"));
   const me=await fetch("https://graph.microsoft.com/v1.0/me?$select=displayName,mail,userPrincipalName",{headers:{Authorization:"Bearer "+data.access_token}});
